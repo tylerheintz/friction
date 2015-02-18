@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = "Awesome. Check back soon for updates."
+        flash[:success] = "Awesome. Thanks #{@user.first_name}. Check back soon for updates."
         format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: @user }
       else
