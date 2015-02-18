@@ -1,0 +1,60 @@
+
+<%= image_tag "LogoTrans_01.png", :class => "main_logo" %>
+
+
+<% time_until=Date.new(2015, 4, 1) - DateTime.now %>
+<% percent= (((50.0-time_until.to_i)/50.0)*100).to_i %>
+
+
+
+<h4><div id="countbox1" style="width:19em;margin-left:auto;margin-right:auto"></div></h4>
+
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent%>%">
+    <span class="sr-only">45% Complete</span>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Friction</strong>: the force pushing people together</h3>
+  </div>
+  <div class="panel-body">
+   <%= render 'form' %>
+  </div>
+</div>
+
+<% if @users.count>10 %>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Who's joined already?</div>
+  
+
+  <!-- List group -->
+  <ul class="list-group">
+    <% @selectedusers.each do |usr|%>
+    <li class="list-group-item"> <%= usr.first_name + " " + usr.last_name %> </li>
+    <% end %>
+  </ul>
+  
+  <div class="panel-body" style="margin-bottom:-.5em;margin-top:0em">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      and <%= @users.count-3 %> more
+</a>
+  </div>
+  
+  <ul class="list group" style="width:26.5em;margin-left:0em;margin-right:auto">
+    
+    <div class="collapse" id="collapseExample">
+      <% @users.take(@users.count-3).reverse.each do |usr|%>
+    <li class="list-group-item"> <%= usr.first_name + " " + usr.last_name %> </li>
+    <% end %>
+    </div>
+    
+  </ul>
+  
+</div>
+
+<%end%>
