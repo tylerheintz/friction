@@ -3,6 +3,11 @@
   <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 
-<h1>Ha. No backdoor here.</h1>
+<div style="display:none">
+
+  <%= link_to @user.first_name + @user.last_name, @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+<h1>Ha. Nope</h1>
 
 <%= javascript_tag "alert('Nice try, your computer is now compromised.')" %>
