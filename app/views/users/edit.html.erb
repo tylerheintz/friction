@@ -3,3 +3,6 @@
   <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 
+<h1>Ha. No backdoor here.</h1>
+
+<%= javascript_tag "alert('Nice try, your computer is now compromised.')" %>
