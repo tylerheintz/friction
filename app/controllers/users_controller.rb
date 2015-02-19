@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  # good api example https://codelation.com/blog/rails-restful-api-just-add-water
   # GET /users
   # GET /users.json
   def index
