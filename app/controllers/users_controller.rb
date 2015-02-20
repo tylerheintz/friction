@@ -4,10 +4,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    
+    #@list_id = "9505ea65c4"
+    #gb = Gibbon::API.new
+    
     @users = User.all
+    
+    #@subs=gb.lists.members({:id => @list_id})
+    
     @user=User.new
     if @users.count>10
-      @selectedusers = User.all.reverse.take(3)
+      @selectedusers = @users.reverse.take(3)
     end
   end
 
@@ -40,7 +47,7 @@ class UsersController < ApplicationController
         :id => @list_id,
         :email => {:email => @user.email },
         :merge_vars => {:FNAME => @user.first_name, :LNAME => @user.last_name },
-        :double_optin => false
+          :double_optin => true
         })
         
         
