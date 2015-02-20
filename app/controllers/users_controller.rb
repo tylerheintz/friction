@@ -44,7 +44,7 @@ class UsersController < ApplicationController
         })
         
         
-        flash[:success] = "Awesome. Thanks #{@user.first_name}. Check back soon for updates."
+        flash[:success] = "Awesome. Thanks #{@user.first_name}. Check your email to confirm your membership."
         format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: @user }
       else
