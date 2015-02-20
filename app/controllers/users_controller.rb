@@ -32,6 +32,18 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        
+        @list_id = "9505ea65c4"
+        gb = Gibbon::API.new
+
+        gb.lists.subscribe({
+        :id => @list_id,
+        :email => {:email => @user.email },
+        :merge_vars => {:FNAME => @user.first_name, :LNAME => @user.last_name },
+        :double_optin => false
+        })
+        
+        
         flash[:success] = "Awesome. Thanks #{@user.first_name}. Check back soon for updates."
         format.html { redirect_to root_url }
         format.json { render :show, status: :created, location: @user }

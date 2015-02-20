@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     write_attribute(:last_name, t.to_s.titleize)
   end
   
+  
+  
 end
