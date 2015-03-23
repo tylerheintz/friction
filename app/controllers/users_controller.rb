@@ -7,10 +7,9 @@ class UsersController < ApplicationController
     
     #@list_id = "9505ea65c4"
     #gb = Gibbon::API.new
+    #@subs=gb.lists.members({:id => @list_id})["data"]
     
     @users = User.all
-    
-    #@subs=gb.lists.members({:id => @list_id})
     
     @user=User.new
     if @users.count>10
